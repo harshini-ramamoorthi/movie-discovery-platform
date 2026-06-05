@@ -1,0 +1,218 @@
+.details-page {
+  /* position: relative;
+  color: white;
+  min-height: 100vh; */
+  overflow-x: auto;
+}
+
+/* 🎬 Background */
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transform: scale(1.1); /* prevents blur edges */
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #000 20%, rgba(0,0,0,0.6), transparent);
+  z-index: -1;
+}
+
+/* 🎯 MAIN CONTENT */
+.details-content {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+}
+
+/* 🎥 Poster */
+.poster {
+  width: 300px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* 📄 Info */
+.info {
+  max-width: 600px;
+}
+
+.info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info p {
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* 🔴 Trailer button */
+.trailer-btn {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background: #e50914;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.trailer-btn:hover {
+  background: #ff1f1f;
+}
+
+/* 🎬 Trailer Modal */
+.trailer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.trailer-container {
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+}
+
+.trailer-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* 🔥 Recommendations */
+.recommendations {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.recommendations h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+/* 🎬 Grid */
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.2rem;
+}
+
+/* 🎥 Card */
+.recommendation-card {
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: scale(1.08);
+  z-index: 5;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.recommendation-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Overlay */
+.recommendation-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.recommendation-card:hover::after {
+  opacity: 1;
+}
+
+/* Title */
+.recommendation-card p {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.recommendation-card:hover p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+
+  /* Stack layout instead of side-by-side */
+  .details-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.2rem;
+  }
+
+  /* Smaller poster */
+  .poster {
+    width: 70%;
+    max-width: 250px;
+  }
+
+  /* Text spacing */
+  .info {
+    max-width: 100%;
+  }
+
+  .info h1 {
+    font-size: 1.5rem;
+  }
+
+  .info p {
+    font-size: 0.95rem;
+  }
+
+  /* Button full width feel */
+  .trailer-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Recommendations grid tighter */
+  .recommendation-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .recommendation-card img {
+    height: 180px;
+  }
+}

@@ -1,0 +1,113 @@
+
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+
+  /* 🎬 Netflix-style dark theme */
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #141414;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #141414;
+  overflow-x: hidden;
+}
+
+/* App root */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: #e50914; /* Netflix red */
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+a:hover {
+  color: #ff3b3b;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* Buttons */
+button {
+  border-radius: 6px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #e50914;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff1f1f;
+  transform: scale(1.03);
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Text selection (nice polish) */
+::selection {
+  background: #e50914;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  gap: 2rem;                 /* spacing between items */
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
