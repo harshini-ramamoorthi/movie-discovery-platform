@@ -19,7 +19,7 @@
 // const API_KEY = import.meta.env.VITE_API_KEY;
 // const BASE_URL = "https://api.themoviedb.org/3";
 
-// // 🔥 Get popular movies (with pagination)
+// // Get popular movies (with pagination)
 // export const getPopularMovies = async (page = 1) => {
 //   const response = await fetch(
 //     `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${page}`
