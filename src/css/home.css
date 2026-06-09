@@ -1,5 +1,4 @@
-
-/* ================= HOME ================= */
+/*HOME*/
 
 .home {
   padding: 2rem 0;
@@ -12,7 +11,7 @@
    margin-bottom: 30px;
 }
 
-/* ================= SEARCH FORM ================= */
+/*SEARCH FORM*/
 
 .search-form {
   max-width: 600px;
@@ -65,7 +64,7 @@
   transform: scale(1.1);
 }
 
-/* ================= MOVIE GRID ================= */
+/* MOVIE GRID*/
 
 .movies-grid {
   display: grid;
@@ -76,7 +75,7 @@
   box-sizing: border-box;
 }
 
-/* ================= STATES ================= */
+/*STATES*/
 
 .loading {
   text-align: center;
@@ -95,7 +94,7 @@
   margin: 20px 0;
 }
 
-/* ================= MOBILE ================= */
+/*MOBILE*/
 
 @media (max-width: 639px) {
   .home {
@@ -113,7 +112,7 @@
 
 /* .suggestions {
   position: absolute;
-  top: 100%;            ✅ pushes it BELOW input
+  top: 100%;            pushes it BELOW input
   left: 0;
   width: 100%;
 
