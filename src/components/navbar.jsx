@@ -24,20 +24,20 @@ function NavBar() {
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
-  // ✅ Sync with URL on ANY page
+  // Sync with URL on ANY page
   useEffect(() => {
     const urlQuery = searchParams.get("search") || "";
     setQuery(urlQuery);
   }, [searchParams]);
 
-  // ✅ Focus input
+  //Focus input
   useEffect(() => {
     if (showSearch && inputRef.current) {
       inputRef.current.focus();
     }
   }, [showSearch]);
 
-  // ✅ Update URL globally
+  //Update URL globally
   useEffect(() => {
     const timer = setTimeout(() => {
       const params = new URLSearchParams();
@@ -52,7 +52,7 @@ function NavBar() {
     return () => clearTimeout(timer);
   }, [query, navigate, location.pathname]);
 
-  // 🔥 Suggestions
+  //Suggestions
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (!query.trim() || isSelecting.current) {
@@ -128,7 +128,7 @@ function NavBar() {
               className="search-input"
               onFocus={() => query && setShowSuggestions(true)}
 
-              // 🔥 KEYBOARD NAV
+              //KEYBOARD NAV
               onKeyDown={(e) => {
                 if (!showSuggestions) return;
 
