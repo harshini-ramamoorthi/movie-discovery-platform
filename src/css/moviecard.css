@@ -154,7 +154,7 @@
 .movie-card {
   position: relative;
   border-radius: 10px;
-  overflow: visible; /* 🔥 IMPORTANT FIX */
+  overflow: visible;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: transform 0.3s ease;
