@@ -18,7 +18,7 @@ function Home() {
   const [error, setError] = useState(null);
   const [hasMore, setHasMore] = useState(true);
 
-  // 🔥 Suggestions
+  //Suggestions
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -27,12 +27,12 @@ function Home() {
   const searchRef = useRef(null);
   const isSelecting = useRef(false);
 
-  // ✅ Sync input when URL changes (Navbar ↔ Home)
+  //Sync input when URL changes (Navbar ↔ Home)
   useEffect(() => {
     setInputValue(urlQuery);
   }, [urlQuery]);
 
-  // ✅ Reset when query changes
+  //Reset when query changes
   useEffect(() => {
     setMovies([]);
     setPage(1);
@@ -40,7 +40,7 @@ function Home() {
     window.scrollTo({ top: 0 });
   }, [urlQuery]);
 
-  // ✅ Fetch movies
+  //Fetch movies
   useEffect(() => {
     const loadMovies = async () => {
       setLoading(true);
@@ -71,7 +71,7 @@ function Home() {
     loadMovies();
   }, [page, urlQuery]);
 
-  // ✅ Debounce → update URL (single source of truth)
+  //Debounce → update URL (single source of truth)
   useEffect(() => {
     const timer = setTimeout(() => {
       if (inputValue.trim()) {
@@ -84,7 +84,7 @@ function Home() {
     return () => clearTimeout(timer);
   }, [inputValue]);
 
-  // 🔥 Suggestions (with selection guard)
+  //Suggestions (with selection guard)
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (!isFocused || !inputValue.trim() || isSelecting.current) {
@@ -112,12 +112,12 @@ function Home() {
     return () => clearTimeout(timer);
   }, [inputValue, isFocused]);
 
-  // 🔥 Reset active index
+  //Reset active index
   useEffect(() => {
     setActiveIndex(-1);
   }, [suggestions]);
 
-  // ✅ Infinite scroll
+  //Infinite scroll
   useEffect(() => {
     const handleScroll = () => {
       const bottom =
@@ -133,7 +133,7 @@ function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [loading, hasMore]);
 
-  // ✅ Close suggestions on outside click
+  //Close suggestions on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -167,7 +167,7 @@ function Home() {
             }}
             onBlur={() => setIsFocused(false)}
 
-            // 🔥 KEYBOARD NAVIGATION
+            //KEYBOARD NAVIGATION
             onKeyDown={(e) => {
               if (!showSuggestions) return;
 
@@ -207,7 +207,7 @@ function Home() {
             }}
           />
 
-          {/* ❌ Clear */}
+          {/*Clear */}
           {inputValue && (
             <span
               className="clear-btn"
@@ -222,7 +222,7 @@ function Home() {
             </span>
           )}
 
-          {/* 🎯 Suggestions */}
+          {/*Suggestions */}
           {showSuggestions && suggestions.length > 0 && (
             <ul className="suggestions">
               {suggestions.map((movie, i) => (
@@ -248,7 +248,7 @@ function Home() {
         </div>
       </form>
 
-      {/* ❌ Error */}
+      {/*Error */}
       {error && <div className="error-message">{error}</div>}
 
       {/* ⏳ Skeleton */}
@@ -260,7 +260,7 @@ function Home() {
         </div>
       )}
 
-      {/* 🎬 Movies */}
+      {/*Movies */}
       {movies.length > 0 && (
         <div className="movies-grid">
           {movies.map((movie) => (
@@ -269,7 +269,7 @@ function Home() {
         </div>
       )}
 
-      {/* 🚫 No results */}
+      {/*No results */}
       {!loading && movies.length === 0 && urlQuery && (
         <div className="no-results">
           🔍😕 No results found for "{urlQuery}"
@@ -281,7 +281,7 @@ function Home() {
         <div className="loading">Loading more...</div>
       )}
 
-      {/* 🎬 End */}
+      {/*End */}
       {!loading && movies.length > 0 && !hasMore && (
         <div className="no-more">🎬 You've reached the end</div>
       )}
