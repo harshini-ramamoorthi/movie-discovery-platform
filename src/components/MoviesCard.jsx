@@ -48,7 +48,7 @@ function MovieCard({ movie }) {
             ♡
           </button>
 
-          {/* ⭐ Hover preview */}
+          {/* Hover preview */}
           <div className="hover-preview">
             <div className="rating">
               ⭐ {movie.vote_average?.toFixed(1) || "N/A"}
