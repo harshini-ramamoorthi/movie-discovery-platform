@@ -5,7 +5,7 @@
   overflow-x: auto;
 }
 
-/* 🎬 Background */
+/*Background */
 .backdrop {
   position: absolute;
   width: 100%;
@@ -25,7 +25,7 @@
   z-index: -1;
 }
 
-/* 🎯 MAIN CONTENT */
+/*MAIN CONTENT */
 .details-content {
   display: flex;
   gap: 2rem;
@@ -33,7 +33,7 @@
   align-items: flex-start;
 }
 
-/* 🎥 Poster */
+/*Poster */
 .poster {
   width: 300px;
   border-radius: 12px;
@@ -55,7 +55,7 @@
   color: #ddd;
 }
 
-/* 🔴 Trailer button */
+/*Trailer button */
 .trailer-btn {
   margin-top: 1rem;
   padding: 10px 20px;
@@ -71,7 +71,7 @@
   background: #ff1f1f;
 }
 
-/* 🎬 Trailer Modal */
+/*Trailer Modal */
 .trailer-modal {
   position: fixed;
   top: 0;
@@ -98,7 +98,7 @@
   border-radius: 10px;
 }
 
-/* 🔥 Recommendations */
+/*Recommendations */
 .recommendations {
   padding: 2rem;
   margin-top: 2rem;
@@ -117,7 +117,7 @@
   gap: 1.2rem;
 }
 
-/* 🎥 Card */
+/*Card */
 .recommendation-card {
   position: relative;
   cursor: pointer;
