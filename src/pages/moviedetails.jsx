@@ -14,7 +14,7 @@ function MovieDetails() {
   const [showTrailer, setShowTrailer] = useState(false);
   const [recommendations, setRecommendations] = useState([]);
 
-  // 🔥 Scroll to top when new movie loads
+  //Scroll to top when new movie loads
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
@@ -22,14 +22,14 @@ function MovieDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 🎬 Movie details
+        //Movie details
         const res1 = await fetch(
           `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
         );
         const data1 = await res1.json();
         setMovie(data1);
 
-        // 🎥 Trailer
+        //Trailer
         const res2 = await fetch(
           `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`
         );
@@ -40,7 +40,7 @@ function MovieDetails() {
         );
         if (trailer) setTrailerKey(trailer.key);
 
-        // 🔥 Recommendations
+        //Recommendations
         const res3 = await fetch(
           `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}`
         );
@@ -54,7 +54,7 @@ function MovieDetails() {
     fetchData();
   }, [id]);
 
-  // 🎬 ESC to close trailer
+  //ESC to close trailer
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") setShowTrailer(false);
@@ -69,7 +69,7 @@ function MovieDetails() {
   return (
     <div className="details-page">
 
-      {/* 🔙 Back */}
+      {/*Back */}
       <button
         className="back-btn"
         onClick={() => {
@@ -83,7 +83,7 @@ function MovieDetails() {
         ← Back
       </button>
 
-      {/* 🎬 Background (safe fallback) */}
+      {/*Background (safe fallback) */}
       <div
         className="backdrop"
         style={{
@@ -95,7 +95,7 @@ function MovieDetails() {
 
       <div className="overlay" />
 
-      {/* 🎥 Content */}
+      {/*Content */}
       <div className="details-content">
         <img
           className="poster"
@@ -131,7 +131,7 @@ function MovieDetails() {
         </div>
       </div>
 
-      {/* 🎬 Trailer Modal */}
+      {/*Trailer Modal */}
       {showTrailer && (
         <div
           className="trailer-modal"
@@ -151,7 +151,7 @@ function MovieDetails() {
         </div>
       )}
 
-      {/* 🔥 Recommendations */}
+      {/*Recommendations */}
       {recommendations.length > 0 && (
         <div className="recommendations">
           <h2>🎬 You may also like</h2>
